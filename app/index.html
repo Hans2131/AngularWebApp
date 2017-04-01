@@ -1,0 +1,29 @@
+<html ng-app="mainApp">
+
+<head>
+    <title>SPA Demo</title>
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="home"><a href="/#">Home</a></li>
+
+            <li class="register"><a href="#register">Second</a></li>
+
+            <li class="third"><a href="#third">Third</a></li>
+        </ul>
+    </nav>
+
+    <div class="container" ng-view>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
