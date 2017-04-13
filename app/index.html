@@ -1,29 +1,73 @@
-<html ng-app="mainApp">
+<html ng-app="webtopay">
 
 <head>
     <title>SPA Demo</title>
     <base href="/">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
 
+    <!-- Bootstrap -- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li class="home"><a href="/#">Home</a></li>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid" ng-controller="AccountController">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" ng-click="go('/clicker')">
+                <a class="navbar-brand" href="#">WebToPay</a>
+            </div>
 
-            <li class="register"><a href="#register">Second</a></li>
-
-            <li class="third"><a href="#third">Third</a></li>
-        </ul>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#register">Registreren</a></li>
+                    <li><a href="/#">Account</a></li>
+                    <li><a href="#evenements">Evenementen</a></li>
+                </ul>
+                <form ng-submit="login()" class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="email" placeholder="E-mail" ng-model="login.email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="Password" ng-model="login.password">
+                    </div>
+                    <button type="submit" class="btn btn-default">Inloggen</button>
+                </form>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
     </nav>
 
-    <div class="container" ng-view>
+    <div class="container">
+
+        <div>
+
+        </div>
+
+        <div ng-view>
+        </div>
     </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+        crossorigin="anonymous"></script>
+    <!-- Bootsrap -- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
     <script src="app.js"></script>
 
+    <script src="scripts/controllers/accountcontroller.js"></script>
+    <script src="scripts/controllers/evenementscontroller.js"></script>
+    <script src="scripts/controllers/registercontroller.js"></script>
+
+    <script src="scripts/services/accountservice.js"></script>
 </body>
 
 </html>

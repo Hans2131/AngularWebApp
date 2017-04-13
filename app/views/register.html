@@ -1,3 +1,33 @@
-<h2>Register</h2>
-
-{{ message }}
+<form ng-submit="register()" class="form-horizontal" role="form">
+    <h2>Registration Form</h2>
+    <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">Naam</label>
+        <div class="col-sm-9">
+            <input type="text" id="firstName" placeholder="Naam" class="form-control" autofocus ng-model="register.username">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="col-sm-3 control-label">Email</label>
+        <div class="col-sm-9">
+            <input type="email" id="email" placeholder="Email" class="form-control" ng-model="register.email">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-9">
+            <input type="password" id="password" placeholder="Password" class="form-control" ng-model="register.password">
+        </div>
+    </div>
+     <div class="form-group">
+        <label for="bankaccount" class="col-sm-3 control-label">Rekeningnummer</label>
+        <div class="col-sm-9">
+            <input type="text" id="bankaccount" placeholder="RekeningNummer" class="form-control" ng-model="register.bankaccount">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </div>
+    </div>
+</form>
+<!-- /form -->
