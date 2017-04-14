@@ -16,6 +16,6 @@ app.config(function($routeProvider, $locationProvider) {
         controller: "AccountController"
     })
     .otherwise({
-        redirectTo: "/account"
+        redirectTo: "/register"
     });
 });
