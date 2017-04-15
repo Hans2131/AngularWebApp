@@ -1,33 +1,37 @@
-<form ng-submit="register()" class="form-horizontal" role="form">
-    <h2>Registration Form</h2>
-    <div class="form-group">
-        <label for="name" class="col-sm-3 control-label">Naam</label>
-        <div class="col-sm-9">
-            <input type="text" id="firstName" placeholder="Naam" class="form-control" autofocus ng-model="register.username">
-        </div>
+<div ng-init="checkIfRedirect()" class="view panel panel-default">
+    <div class="panel-heading">
+        <h2>Registreren</h2>
     </div>
-    <div class="form-group">
-        <label for="email" class="col-sm-3 control-label">Email</label>
-        <div class="col-sm-9">
-            <input type="email" id="email" placeholder="Email" class="form-control" ng-model="register.email">
+    <form ng-submit="register()" class="form-horizontal myform" role="form">
+        <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Naam</label>
+            <div class="col-sm-9">
+                <input type="text" id="firstName" placeholder="Naam" class="form-control" autofocus ng-model="register.username">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="password" class="col-sm-3 control-label">Password</label>
-        <div class="col-sm-9">
-            <input type="password" id="password" placeholder="Password" class="form-control" ng-model="register.password">
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+                <input type="email" id="email" placeholder="Email" class="form-control" ng-model="register.email">
+            </div>
         </div>
-    </div>
-     <div class="form-group">
-        <label for="bankaccount" class="col-sm-3 control-label">Rekeningnummer</label>
-        <div class="col-sm-9">
-            <input type="text" id="bankaccount" placeholder="RekeningNummer" class="form-control" ng-model="register.bankaccount">
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password" id="password" placeholder="Password" class="form-control" ng-model="register.password">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-9 col-sm-offset-3">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        <div class="form-group">
+            <label for="bankaccount" class="col-sm-3 control-label">Rekeningnummer</label>
+            <div class="col-sm-9">
+                <input type="text" id="bankaccount" placeholder="RekeningNummer" class="form-control" ng-model="register.bankaccount">
+            </div>
         </div>
-    </div>
-</form>
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary btn-block">Registreer</button>
+            </div>
+        </div>
+    </form>
+</div>
 <!-- /form -->

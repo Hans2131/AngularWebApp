@@ -1,16 +1,24 @@
-body {
-   
+#body {
+   background-color: lightgrey;
 }
 
-*[role="form"] {
-    max-width: 530px;
+.viewBackColor{
+    background-color: lightgrey;
+}
+
+.view {
+    max-width: 600px;
     padding: 15px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: white;
     border-radius: 0.3em;
 }
 
-*[role="form"] h2 {
+.evenements{
+    max-width: 700px;
+}
+
+.view h2 {
     margin-left: 5em;
     margin-bottom: 1em;
 }
@@ -18,3 +26,26 @@ body {
 #welcomeSpan {
     margin-right: 1em;
 }
+
+.myform{
+    margin-top: 1em;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+
+.listbar{
+    margin-top: 1em;
+}
+
+.btn-primary.create {margin-top:8px;}

@@ -10,7 +10,7 @@
         crossorigin="anonymous">
 </head>
 
-<body>
+<body id="body">
     <nav class="navbar navbar-default">
         <div class="container-fluid" ng-controller="AccountController">
             <div class="navbar-header" ng-click="go('/account')">
@@ -18,7 +18,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="#register" ng-show="!isLoggedIn">Registreren</a></li>
-                <li><a href="/#" ng-show="isLoggedIn">Account</a></li>
+                <li><a href="#account" ng-show="isLoggedIn">Account</a></li>
                 <li><a href="#evenements" ng-show="isLoggedIn">Evenementen</a></li>
             </ul>
             <form ng-submit="login()" ng-show="!isLoggedIn" class="navbar-form navbar-right">
@@ -37,12 +37,10 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container viewBackColor">
         <div ng-view>
         </div>
     </div>
-
-
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
         crossorigin="anonymous"></script>
@@ -56,9 +54,10 @@
     <script src="app.js"></script>
 
     <script src="scripts/controllers/accountcontroller.js"></script>
-    <script src="scripts/controllers/evenementscontroller.js"></script>
+    <script src="scripts/controllers/evenementcontroller.js"></script>
 
     <script src="scripts/services/accountservice.js"></script>
+    <script src="scripts/services/evenementservice.js"></script>
 </body>
 
 </html>

@@ -8,6 +8,7 @@ app.service("AccountService", function () {
             users = [];
         }
 
+        newUser.index = users.length;
         users.push(newUser);
         localStorage.setItem('userAccounts', JSON.stringify(users));
 
@@ -31,6 +32,32 @@ app.service("AccountService", function () {
                 }
             });
         }
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
         return currentUser;
     };
+
+    this.getCurrentUser = function () {
+        var currentUser = localStorage.getItem("currentUser");
+        return JSON.parse(currentUser);
+    };
+
+    this.logOut = function () {
+        localStorage.removeItem("currentUser");
+    };
+
+    this.addMoney = function (amount) {
+        var users = localStorage.getItem('userAccounts');
+        users = JSON.parse(users);
+        var currentUser = this.getCurrentUser();
+
+        currentUser.saldo += amount;
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+        
+        users[currentUser.index] = currentUser;
+
+        localStorage.setItem('userAccounts', JSON.stringify(users));
+
+        var test = localStorage.getItem('userAccounts');
+        console.log(test);
+    }
 });

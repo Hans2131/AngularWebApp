@@ -1,2 +1,43 @@
-<h1>Welkom op de Evenementen Pagina</h1>
-<p>{{message}}</p>
+<div class="view evenements panel panel-default" ng-controller="AccountController">
+    <div class="panel-heading">
+        <h1>Evenementen</h1>
+    </div>
+    <nav class="navbar navbar-default listbar">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="">
+                <div class="navbar-form navbar-left">
+                    <input type="text" class="form-control" />
+                    <button ng-click="search()" class="btn btn-default">Zoeken</button>
+                </div>
+                <button ng-click="startCreate()" class="btn btn-primary create pull-right">Evenement aanmaken</button>
+            </div>
+
+        </div>
+    </nav>
+    <div class="panel-body">
+        <table class="table table-striped table-bordered table-list">
+            <thead>
+                <tr>
+                    <th>Naam</th>
+                    <th>Eigenaar</th>
+                    <th>Schuld</th>
+                    <th>Beschrijving</th>
+                    <th>Opties</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="evenement in evenements track by evenement.index">
+                    <td>{{evenement.name}}</td>
+                    <td>{{evenement.owner}}</td>
+                    <td>{{evenement.debt | currency : "€"}}</td>
+                    <td>{{evenement.description}}</td>
+                    <td>
+                        <button ng-show="isOwner($index)" ng-click="startUpdate($index)" class="btn btn-default">Wijzigen</button>
+                        <button ng-click="open($index)" class="btn btn-default">Openen</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

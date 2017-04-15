@@ -9,7 +9,15 @@ app.config(function($routeProvider, $locationProvider) {
     })
     .when("/evenements", {
         templateUrl : "views/evenements.html",
-        controller: "EvenementsController"
+        controller: "EvenementController"
+    })
+    .when("/createevenement", {
+        templateUrl : "views/createevenement.html",
+        controller: "EvenementController"
+    })
+    .when("/evenement", {
+        templateUrl : "views/evenement.html",
+        controller: "EvenementController"
     })
     .when("/register", {
         templateUrl : "views/register.html",

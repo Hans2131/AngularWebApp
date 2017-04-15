@@ -1,0 +1,42 @@
+<div class="view panel panel-default" ng-controller="AccountController">
+    <div class="panel-heading">
+        <h1>Evenement {{evenement.name}}</h1>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive">                </div>
+
+            <div class=" col-md-9 col-lg-9 ">
+                <table class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <td>Naam:</td>
+                            <td>{{evenement.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Eigenaar:</td>
+                            <td>{{evenement.owner}}</td>
+                        </tr>
+                        <tr>
+                            <td>Schuld:</td>
+                            <td>{{evenement.debt | currency : "€"}}</td>
+                        </tr>
+                        <tr>
+                            <td>Beschrijving:</td>
+                            <td>{{evenement.description}}</td>
+                        </tr>
+                        <tr>
+                            <td>Acties:</td>
+                            <td>
+                                <span ng-show="isOwner(currentEvenement)">Geen</span>
+                                <button ng-show="!isOwner(currentEvenement)" ng-click="takePart()" class="btn btn-primary">Deelnemen</button>
+                                <button ng-show="!isOwner(currentEvenement)" ng-click="pay()" class="btn btn-primary">Betalen</button>
+                            </td>
+                        </tr>
+                        <tr><td></td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
