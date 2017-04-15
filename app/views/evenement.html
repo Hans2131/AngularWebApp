@@ -4,7 +4,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive">                </div>
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://www.almanapp.nl/live/admin/template/img/tileicons/Technology%20Icons/Social%20Network/20.png" class="img-circle img-responsive">                </div>
 
             <div class=" col-md-9 col-lg-9 ">
                 <table class="table table-user-information">
@@ -19,7 +19,15 @@
                         </tr>
                         <tr>
                             <td>Schuld:</td>
-                            <td>{{evenement.debt | currency : "€"}}</td>
+                            <td>{{evenement.debtLeft | currency : "€"}}/{{evenement.debt | currency : "€"}}</td>
+                        </tr>
+                        <tr>
+                            <td>Aantal deelnemers:</td>
+                            <td>{{evenement.amountOfParticipants}}</td>
+                        </tr>
+                        <tr>
+                            <td>Bedrag per deelnemer:</td>
+                            <td>{{evenement.debt / evenement.amountOfParticipants | currency : "€"}}</td>
                         </tr>
                         <tr>
                             <td>Beschrijving:</td>
@@ -28,9 +36,9 @@
                         <tr>
                             <td>Acties:</td>
                             <td>
-                                <span ng-show="isOwner(currentEvenement)">Geen</span>
-                                <button ng-show="!isOwner(currentEvenement)" ng-click="takePart()" class="btn btn-primary">Deelnemen</button>
-                                <button ng-show="!isOwner(currentEvenement)" ng-click="pay()" class="btn btn-primary">Betalen</button>
+                                <span ng-show="isOwner(currentEvenement) || hasPayed()">Geen</span>
+                                <button ng-show="!isOwner(currentEvenement) && !isPartTaker()" ng-click="takePart()" class="btn btn-primary">Deelnemen</button>
+                                <button ng-show="!isOwner(currentEvenement) && isPartTaker() && !hasPayed()" ng-click="pay()" class="btn btn-primary">Betalen</button>
                             </td>
                         </tr>
                         <tr><td></td><td></td></tr>
@@ -38,5 +46,22 @@
                 </table>
             </div>
         </div>
+        <table class="table table-striped table-bordered table-list">
+            <h3>Deelnemers</h3>
+            <thead>
+                <tr>
+                    <th>Naam</th>
+                    <th>Email</th>
+                    <th>Betaald?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="participant in evenement.participants track by participant.index">
+                    <td>{{participant.user.username}}</td>
+                    <td>{{participant.user.email}}</td>
+                    <td>{{participant.hasPayed == true ? "Ja" : "Nee"}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

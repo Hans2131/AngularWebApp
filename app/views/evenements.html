@@ -6,8 +6,13 @@
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="">
                 <div class="navbar-form navbar-left">
-                    <input type="text" class="form-control" />
-                    <button ng-click="search()" class="btn btn-default">Zoeken</button>
+                    <input type="text" class="form-control" placeholder="Search" ng-model="search" />
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input type="checkbox" ng-model="onlyMyEvenements"/>
+                            <span>Mijn evenementen</span>
+                        </span>
+                    </div>
                 </div>
                 <button ng-click="startCreate()" class="btn btn-primary create pull-right">Evenement aanmaken</button>
             </div>
@@ -21,15 +26,17 @@
                     <th>Naam</th>
                     <th>Eigenaar</th>
                     <th>Schuld</th>
+                    <th>Aantal deelnemers</th>
                     <th>Beschrijving</th>
                     <th>Opties</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="evenement in evenements track by evenement.index">
+                <tr ng-repeat="evenement in evenements | filter:search | myEvenements:currentUser.email:onlyMyEvenements track by evenement.index">
                     <td>{{evenement.name}}</td>
                     <td>{{evenement.owner}}</td>
                     <td>{{evenement.debt | currency : "€"}}</td>
+                    <td>{{evenement.amountOfParticipants}}</td>
                     <td>{{evenement.description}}</td>
                     <td>
                         <button ng-show="isOwner($index)" ng-click="startUpdate($index)" class="btn btn-default">Wijzigen</button>

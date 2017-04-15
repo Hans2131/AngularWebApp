@@ -1,7 +1,6 @@
 var app = angular.module('webtopay', ['ngRoute']);
 
 app.config(function($routeProvider, $locationProvider) {
-    //$locationProvider.html5Mode(true);
     $routeProvider
     .when("/account", {
         templateUrl : "views/account.html",
