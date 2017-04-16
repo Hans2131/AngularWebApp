@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Wed Mar 29 2017 14:00:51 GMT+0200 (West-Europa (zomertijd))
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -15,6 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js',
+      'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-mocks.js',
+      'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js',
+      '../app/scripts/app.js',
+      '../app/scripts/**/*.js',
+      'spec/**/*.js',
     ],
 
 

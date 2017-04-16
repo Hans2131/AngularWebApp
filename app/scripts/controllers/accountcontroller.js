@@ -14,7 +14,7 @@ app.controller("AccountController", ['$scope', 'AccountService', '$window', func
         }
     }
 
-    $scope.register = function () {
+    $scope.registerUser = function () {
         if (!AccountService.checkIfAccountExists($scope.register.email)) {
             var registerData = Object.assign({}, $scope.register);
             registerData.saldo = 0.0;
