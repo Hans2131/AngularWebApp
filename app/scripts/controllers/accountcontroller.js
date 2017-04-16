@@ -10,7 +10,6 @@ app.controller("AccountController", ['$scope', 'AccountService', '$window', func
         if ($scope.currentUser != null) {
             $scope.isLoggedIn = true;
             $window.location.href = '#/account';
-            console.log(JSON.stringify($scope.currentUser));
         }
     }
 
@@ -20,7 +19,7 @@ app.controller("AccountController", ['$scope', 'AccountService', '$window', func
             registerData.saldo = 0.0;
 
             AccountService.saveUser(registerData);
-            $scope.registrationMessage = "Registreren is gelukt";
+            $scope.registrationMessage = "Registreren is gelukt!";
         } else {
             $scope.registrationMessage = "Email bestaat al!";
         }

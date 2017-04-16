@@ -24,7 +24,7 @@ describe('AccountController', function () {
                 saldo: 0
             };
             $scope.registerUser();
-            expect($scope.registrationMessage).toEqual("Registreren is gelukt");
+            expect($scope.registrationMessage).toEqual("Registreren is gelukt!");
         });
 
         it('cant create an account with email that already exists', function () {
@@ -37,6 +37,25 @@ describe('AccountController', function () {
             };
             $scope.registerUser();
             expect($scope.registrationMessage).toEqual("Email bestaat al!");
+        });
+    });
+
+    describe('$scope.login', function () {
+        var $scope, controller;
+
+        beforeEach(function () {
+            $scope = {};
+            controller = $controller('AccountController', { $scope: $scope });
+        });
+
+        it('login should set currentuser', function () {
+            $scope.login.email = "test@mail.com";
+            $scope.login.password = "passtest";
+
+            $scope.login();
+            expect($scope.isLoggedIn).toEqual(true);
+            expect($scope.currentUser.username).toEqual("Test");
+            expect($scope.currentUser.email).toEqual("test@mail.com");
         });
     });
 });
