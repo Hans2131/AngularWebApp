@@ -28,6 +28,7 @@ app.controller("AccountController", ['$scope', 'AccountService', '$window', func
     $scope.logout = function () {
         AccountService.logOut();
         $scope.isLoggedIn = false;
+        $scope.currentUser = null;
         $window.location.href = '#/register';
     }
 
